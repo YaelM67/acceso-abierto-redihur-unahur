@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Abierto en la Universidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; }
+        
+
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .debate-card {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gray-800 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-6">
+                <div class="flex justify-center items-center space-x-4 mb-4">
+                    <span class="text-6xl">📚</span>
+                    <div class="text-4xl font-bold text-orange-400">ReDiHur</div>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Acceso abierto</h1>
+            <p class="text-xl md:text-2xl font-light mb-8 text-gray-300">Liberando el conocimiento para todos</p>
+            <button onclick="scrollToSection('que-es')" class="bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition-colors duration-300">
+                Explorá →
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-4 py-4">
+                <button onclick="scrollToSection('que-es')" class="nav-btn text-gray-600 hover:text-teal-600 font-medium transition-colors">¿Qué es?</button>
+                <button onclick="scrollToSection('publicar')" class="nav-btn text-gray-600 hover:text-teal-600 font-medium transition-colors">Cómo publicar</button>
+                <button onclick="scrollToSection('derechos')" class="nav-btn text-gray-600 hover:text-teal-600 font-medium transition-colors">Derechos</button>
+                <button onclick="scrollToSection('herramientas')" class="nav-btn text-gray-600 hover:text-teal-600 font-medium transition-colors">Herramientas</button>
+                <button onclick="scrollToSection('debates')" class="nav-btn text-gray-600 hover:text-teal-600 font-medium transition-colors">Debates</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección 1: ¿Qué es el Acceso Abierto? e Historia -->
+    <section id="que-es" class="py-16 section-fade">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- ¿Qué es el Acceso Abierto? -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-teal-600">¿Qué es el acceso abierto?</h3>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8 card-hover">
+                        <div class="flex items-start space-x-6">
+                            <div class="text-5xl">🌍</div>
+                            <div>
+                                <h4 class="text-2xl font-semibold mb-4 text-teal-600">Un movimiento global</h4>
+                                <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                                    El Acceso Abierto (AA) es un movimiento global que busca <strong>liberar el conocimiento</strong>. 
+                                    Su objetivo principal es que las publicaciones científicas y académicas estén disponibles de forma 
+                                    <strong>gratuita y sin restricciones</strong> en internet para cualquier persona.
+                                </p>
+                                <p class="text-lg leading-relaxed text-gray-700">
+                                    Imaginá que todo el conocimiento, especialmente el que se financia con fondos públicos o el que 
+                                    generamos en las universidades, sea un <strong>bien común accesible</strong> para la mayor cantidad 
+                                    de gente posible, eliminando barreras económicas, legales y tecnológicas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+                        <h4 class="text-xl font-semibold mb-6 text-center text-gray-800">Con el Acceso Abierto podés:</h4>
+                        <div class="grid md:grid-cols-5 gap-4">
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">📖</div>
+                                <p class="font-medium">Leer</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">⬇️</div>
+                                <p class="font-medium">Descargar</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">📋</div>
+                                <p class="font-medium">Copiar</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">📤</div>
+                                <p class="font-medium">Distribuir</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-2">🔗</div>
+                                <p class="font-medium">Enlazar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historia -->
+                <div>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-teal-600">Un poco de historia: ¿cómo nació el acceso abierto?</h3>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                        <p class="text-lg text-gray-700 leading-relaxed text-center">
+                            El movimiento de acceso abierto surgió como una <strong>respuesta al monopolio de las grandes editoriales científicas</strong>, 
+                            que históricamente han controlado el acceso al conocimiento a través de suscripciones muy costosas.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h4 class="text-2xl font-semibold mb-8 text-center text-teal-600">Las tres B - declaraciones fundacionales</h4>
+                        <p class="text-center text-gray-600 mb-8">Este camino se consolidó con tres declaraciones clave:</p>
+                        
+                        <div class="space-y-8">
+                            <!-- Budapest -->
+                            <div class="timeline-item flex items-start space-x-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                        2002
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-6 shadow-md flex-1">
+                                    <h5 class="text-xl font-semibold mb-2 text-teal-600">📍 Declaración de Budapest (BOAI)</h5>
+                                    <p class="text-gray-700 mb-3">
+                                        <strong>El hito fundacional.</strong> Acuñó el concepto de "Acceso Abierto" y propuso las dos vías principales para lograrlo:
+                                    </p>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div class="bg-teal-50 p-3 rounded-lg">
+                                            <strong>El autoarchivo:</strong> Depositar copias en repositorios
+                                        </div>
+                                        <div class="bg-teal-50 p-3 rounded-lg">
+                                            <strong>Revistas de acceso abierto:</strong> Publicación directa
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bethesda -->
+                            <div class="timeline-item flex items-start space-x-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                        2003
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-6 shadow-md flex-1">
+                                    <h5 class="text-xl font-semibold mb-2 text-blue-600">🏥 Declaración de Bethesda</h5>
+                                    <p class="text-gray-700">
+                                        Se centró en la necesidad de los <strong>repositorios de acceso abierto</strong> y el autoarchivo por parte de los autores.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Berlin -->
+                            <div class="timeline-item flex items-start space-x-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                        2003
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-6 shadow-md flex-1">
+                                    <h5 class="text-xl font-semibold mb-2 text-green-600">🏛️ Declaración de Berlín</h5>
+                                    <p class="text-gray-700">
+                                        Amplió las anteriores, enfatizando que las obras deben ser <strong>legibles por máquinas</strong> 
+                                        y que se debe permitir su reutilización, siempre con la debida atribución.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Publicar -->
+    <section id="publicar" class="py-16 bg-white section-fade">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-teal-600">Cómo publicar en acceso abierto</h3>
+
+                    <!-- Vías de Publicación -->
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Vía Verde -->
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 card-hover border-l-4 border-green-500">
+                        <div class="flex items-start space-x-4 mb-6">
+                            <div class="text-4xl">🟢</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-green-700 mb-2">Vía verde</h3>
+                                <p class="text-sm text-green-600 font-medium">Green open access</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Consiste en <strong>depositar artículos</strong> (o versiones de ellos, según la política editorial) 
+                            en un repositorio institucional de acceso abierto.
+                        </p>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="text-sm text-gray-600">
+                                <strong>✅ Ventaja:</strong> Garantiza rápida diseminación, incluso si fue publicada en revista de suscripción
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Vía Dorada -->
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8 card-hover border-l-4 border-yellow-500">
+                        <div class="flex items-start space-x-4 mb-6">
+                            <div class="text-4xl">🟡</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-yellow-700 mb-2">Vía dorada</h3>
+                                <p class="text-sm text-yellow-600 font-medium">Gold open access</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Implica <strong>publicar directamente</strong> en una revista cuyo contenido completo 
+                            está gratis para todos los lectores desde el momento de su publicación.
+                        </p>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="text-sm text-gray-600 mb-2">
+                                <strong>✅ Ventaja:</strong> Acceso inmediato y completo desde la publicación
+                            </p>
+                            <p class="text-xs text-orange-600">
+                                <strong>💰 APCs:</strong> Algunas revistas cobran tarifas a autores para cubrir costos de publicación
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Vía Híbrida -->
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 card-hover border-l-4 border-orange-500">
+                        <div class="flex items-start space-x-4 mb-6">
+                            <div class="text-4xl">🟠</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-orange-700 mb-2">Vía híbrida</h3>
+                                <p class="text-sm text-orange-600 font-medium">Ruta café</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Algunas revistas por suscripción ofrecen la opción de hacer <strong>artículos individuales</strong> 
+                            de Acceso Abierto pagando un APC.
+                        </p>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="text-sm text-gray-600">
+                                <strong>⚠️ Nota:</strong> El artículo es abierto, pero la revista sigue siendo de acceso restringido
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Vía Diamante -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 card-hover border-l-4 border-purple-500">
+                        <div class="flex items-start space-x-4 mb-6">
+                            <div class="text-4xl">💎</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-purple-700 mb-2">Vía diamante</h3>
+                                <p class="text-sm text-purple-600 font-medium">Platinum open access</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            <strong>El modelo más puro.</strong> Estas revistas ofrecen Acceso Abierto 
+                            sin cobrar ninguna tarifa a autores ni lectores.
+                        </p>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="text-sm text-gray-600">
+                                <strong>💰 Financiación:</strong> Instituciones académicas o subsidios
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Guía para Autores -->
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-center text-teal-700">
+                            🎯 Guía rápida para autores
+                        </h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl mb-3">1️⃣</div>
+                                <h4 class="font-semibold mb-2 text-gray-800">Verificá políticas</h4>
+                                <p class="text-sm text-gray-600">Consultá la política de la revista sobre autoarchivo y versiones permitidas</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-3">2️⃣</div>
+                                <h4 class="font-semibold mb-2 text-gray-800">Elegí tu vía</h4>
+                                <p class="text-sm text-gray-600">Seleccioná la modalidad que mejor se adapte a tu situación y recursos</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl mb-3">3️⃣</div>
+                                <h4 class="font-semibold mb-2 text-gray-800">Depositá o publicá</h4>
+                                <p class="text-sm text-gray-600">Utilizá repositorios institucionales o revistas de acceso abierto</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Derechos de Autor y Licencias -->
+    <section id="derechos" class="py-16 bg-gray-50 section-fade">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-teal-600">Derechos de autor y licencias</h3>
+                    <div class="text-center mb-12">
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            El acceso abierto no elimina el derecho de autor, sino que busca equilibrarlo con el interés público
+                        </p>
+                    </div>
+                <!-- APCs Explanation -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                    <div class="flex items-start space-x-6 mb-6">
+                        <div class="text-5xl">💰</div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-orange-600">¿Qué son los APCs?</h3>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                                Los <strong>Article Processing Charges (APCs)</strong> son tarifas que algunas revistas de vía dorada 
+                                cobran a los autores (o a sus instituciones) para cubrir los costos de publicación.
+                            </p>
+                            <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                                <p class="text-gray-700">
+                                    <strong>⚠️ Importante:</strong> No todas las revistas de acceso abierto cobran APCs. 
+                                    Las revistas diamante ofrecen publicación gratuita tanto para autores como lectores.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative Commons -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold text-green-600 mb-4">
+                            🔓 Licencias Creative Commons (CC)
+                        </h3>
+                        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                            Herramientas legales flexibles que permiten a los autores conservar el control 
+                            sobre cómo se pueden usar sus obras, manteniendo la protección legal.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <!-- BY -->
+                        <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-500">
+                            <div class="text-3xl mb-3">🏷️</div>
+                            <h4 class="font-semibold text-green-700 mb-2">Atribución (BY)</h4>
+                            <p class="text-sm text-gray-600">
+                                <strong>Obligatoria.</strong> Permite usar la obra dando crédito al autor original.
+                            </p>
+                        </div>
+
+                        <!-- NC -->
+                        <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
+                            <div class="text-3xl mb-3">🚫</div>
+                            <h4 class="font-semibold text-blue-700 mb-2">No Comercial (NC)</h4>
+                            <p class="text-sm text-gray-600">
+                                Permite uso solo con fines no comerciales.
+                            </p>
+                        </div>
+
+                        <!-- ND -->
+                        <div class="bg-purple-50 p-6 rounded-xl border-l-4 border-purple-500">
+                            <div class="text-3xl mb-3">🔒</div>
+                            <h4 class="font-semibold text-purple-700 mb-2">Sin Derivadas (ND)</h4>
+                            <p class="text-sm text-gray-600">
+                                Permite redistribución sin cambios ni adaptaciones.
+                            </p>
+                        </div>
+
+                        <!-- SA -->
+                        <div class="bg-yellow-50 p-6 rounded-xl border-l-4 border-yellow-500">
+                            <div class="text-3xl mb-3">🔄</div>
+                            <h4 class="font-semibold text-yellow-700 mb-2">Compartir Igual (SA)</h4>
+                            <p class="text-sm text-gray-600">
+                                Las obras derivadas deben usar la misma licencia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retener Derechos -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border-l-4 border-red-500">
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="text-4xl">⚠️</div>
+                            <h3 class="text-xl font-bold text-red-700">¿Por qué NO pagar por depositar?</h3>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-red-500 font-bold">•</span>
+                                <span><strong>Doble imposición:</strong> Pagás dos veces por el mismo contenido</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-red-500 font-bold">•</span>
+                                <span><strong>Limita el acceso:</strong> Crea barreras para autores sin fondos</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-red-500 font-bold">•</span>
+                                <span><strong>Es tu derecho:</strong> El contenido te pertenece</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-l-4 border-green-500">
+                        <div class="flex items-start space-x-4 mb-4">
+                            <div class="text-4xl">✅</div>
+                            <h3 class="text-xl font-bold text-green-700">Cómo retener tus derechos</h3>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-green-500 font-bold">•</span>
+                                <span>Revisa políticas editoriales antes de firmar</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-green-500 font-bold">•</span>
+                                <span>Usá herramientas como <a href="https://openpolicyfinder.jisc.ac.uk/" target="_blank" class="text-teal-600 hover:text-teal-800 underline font-semibold">Open Policy Finder</a></span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-green-500 font-bold">•</span>
+                                <span>Negocia un addendum al contrato</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Períodos de Embargo -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="flex items-start space-x-6">
+                        <div class="text-5xl">⏰</div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-indigo-600">Períodos de Embargo</h3>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                                Algunas editoriales permiten el depósito en repositorios (Vía Verde), pero con un 
+                                <strong>"período de embargo"</strong>. Tu artículo solo será de Acceso Abierto después 
+                                de un tiempo determinado (6, 12 o 24 meses).
+                            </p>
+                            <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-400">
+                                <p class="text-gray-700">
+                                    <strong>💡 Propósito:</strong> Permite a la editorial "recuperar" su inversión 
+                                    antes de que el contenido sea libremente accesible.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Herramientas para Visibilidad -->
+    <section id="herramientas" class="py-16 bg-white section-fade">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-teal-600">Herramientas Clave para la Visibilidad y Atribución</h3>
+
+                    <!-- Filiación Institucional -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 mb-12 border-l-4 border-blue-500">
+                    <div class="flex items-start space-x-6 mb-6">
+                        <div class="text-5xl">🏛️</div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-blue-700">Filiación Institucional</h3>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                                La filiación institucional es tu <strong>vínculo formal con la universidad</strong> 
+                                al momento de producir una obra. 
+                                Incluirla correctamente es vital para:
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div class="text-2xl">🎯</div>
+                                <h4 class="font-semibold text-blue-700">Reconocimiento de la UNAHUR</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">
+                                Destaca el rol de la universidad en la generación del conocimiento y la posiciona en el mapa de la investigación.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div class="text-2xl">👁️</div>
+                                <h4 class="font-semibold text-blue-700">Visibilidad institucional</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">
+                                Permite que bases de datos y sistemas de evaluación vinculen tu producción directamente con la UNAHUR.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div class="text-2xl">💰</div>
+                                <h4 class="font-semibold text-blue-700">Acceso a recursos</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">
+                                Tu filiación es clave para acceder a bases de datos y financiamiento.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div class="text-2xl">✅</div>
+                                <h4 class="font-semibold text-blue-700">Consistencia y claridad</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">
+                                Evita confusiones y asegura que tu producción sea correctamente atribuida.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-600 text-white p-4 rounded-lg">
+                        <p class="font-semibold">
+                            💡 Recomendación: Usa siempre la forma oficial: <strong>"Universidad Nacional de Hurlingham (UNAHUR)"</strong>
+                        </p>
+                    </div>
+                </div>
+
+                    <!-- PIDs -->
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 mb-12 border-l-4 border-green-500">
+                    <div class="flex items-start space-x-6 mb-6">
+                        <div class="text-5xl">🔗</div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-green-700">Los Identificadores Persistentes (PIDs)</h3>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                                Los Identificadores Persistentes (PIDs) son <strong>códigos únicos y estables en el tiempo</strong> 
+                                que se asignan a personas, publicaciones, datos o instituciones. A diferencia de los enlaces web 
+                                que pueden romperse, los PIDs garantizan una referencia duradera y unívoca.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h4 class="text-xl font-semibold mb-4 text-green-700 text-center">¿Por qué son tan importantes?</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="flex items-start space-x-3 mb-3">
+                                    <div class="text-2xl">🎯</div>
+                                    <h5 class="font-semibold text-green-700">Atribución precisa</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">
+                                    Te reconocen de forma inequívoca como autor/a.
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="flex items-start space-x-3 mb-3">
+                                    <div class="text-2xl">📍</div>
+                                    <h5 class="font-semibold text-green-700">Visibilidad y ubicación fija</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">
+                                    Tus trabajos son encontrados y citados correctamente, sin importar cambios de servidor.
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="flex items-start space-x-3 mb-3">
+                                    <div class="text-2xl">🔗</div>
+                                    <h5 class="font-semibold text-green-700">Conexión de tu producción</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">
+                                    Enlazan tu perfil con publicaciones, datos y afiliaciones.
+                                </p>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="flex items-start space-x-3 mb-3">
+                                    <div class="text-2xl">📊</div>
+                                    <h5 class="font-semibold text-green-700">Monitoreo de impacto</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">
+                                    Facilitan el seguimiento del impacto de tu investigación.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PIDs más relevantes -->
+                    <div>
+                        <h4 class="text-xl font-semibold mb-6 text-green-700 text-center">¿Cuáles son los PIDs más relevantes?</h4>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- ORCID -->
+                            <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-green-400">
+                                <div class="flex items-center space-x-4 mb-4">
+                                    <div class="text-4xl">👤</div>
+                                    <div>
+                                        <h5 class="text-xl font-bold text-green-700">ORCID</h5>
+                                        <p class="text-sm text-green-600 font-medium">Open Researcher and Contributor ID</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    Un <strong>identificador único para investigadores/as</strong> que centraliza tu producción 
+                                    y conecta tu perfil con sistemas de investigación.
+                                </p>
+                                <div class="bg-green-50 p-3 rounded-lg">
+                                    <p class="text-sm text-green-800">
+                                        <strong>🔍 Ejemplo:</strong> 0000-0000-0000-0000
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- DOI -->
+                            <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-blue-400">
+                                <div class="flex items-center space-x-4 mb-4">
+                                    <div class="text-4xl">📄</div>
+                                    <div>
+                                        <h5 class="text-xl font-bold text-blue-700">DOI</h5>
+                                        <p class="text-sm text-blue-600 font-medium">Digital Object Identifier</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    Un <strong>identificador único para objetos digitales</strong> como artículos de revista. 
+                                    Garantiza que el enlace a tu trabajo nunca se romperá y facilita su citación.
+                                </p>
+                                <div class="bg-blue-50 p-3 rounded-lg">
+                                    <p class="text-sm text-blue-800">
+                                        <strong>🔍 Ejemplo:</strong> 10.1000/182
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Call to Action -->
+                    <div class="bg-gradient-to-r from-teal-50 to-orange-50 rounded-2xl p-8 text-center">
+                        <h3 class="text-2xl font-semibold mb-4 text-teal-700">🚀 Maximiza tu visibilidad académica</h3>
+                        <p class="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
+                            Combinar una filiación institucional correcta con identificadores persistentes es la clave 
+                            para que tu trabajo tenga el reconocimiento y la visibilidad que merece en la comunidad académica global.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <p class="font-semibold text-teal-600">✅ Usa siempre tu filiación oficial</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <p class="font-semibold text-orange-600">✅ Registra tu ORCID y DOI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Debates Actuales -->
+    <section id="debates" class="py-16 bg-gray-50 section-fade">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-teal-600">Debates Actuales</h3>
+                    <div class="text-center mb-12">
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Los desafíos y discusiones que atraviesan la comunidad académica global
+                        </p>
+                    </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Debate 1 -->
+                <div class="debate-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="text-3xl">💰</div>
+                        <h3 class="text-xl font-semibold text-gray-800">Modelos de negocio</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        <strong>APCs vs. sostenibilidad:</strong> Las Tasas por Procesamiento de Artículos crean nuevas barreras económicas, 
+                        trasladando el costo del lector al autor.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg">
+                        <strong>Solución emergente:</strong> Acceso Abierto Diamante (sin APCs)
+                    </div>
+                </div>
+
+                <!-- Debate 2 -->
+                <div class="debate-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="text-3xl">🌎</div>
+                        <h3 class="text-xl font-semibold text-gray-800">Multilingüismo</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Creciente demanda por la visibilidad del conocimiento en idiomas distintos al inglés, 
+                        especialmente desde América Latina.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg">
+                        <strong>Objetivo:</strong> Descentralizar la producción científica
+                    </div>
+                </div>
+
+                <!-- Debate 3 -->
+                <div class="debate-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="text-3xl">🏛️</div>
+                        <h3 class="text-xl font-semibold text-gray-800">Repositorios institucionales</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Los repositorios como REDIHUR son fundamentales para el Acceso Abierto "verde". 
+                        El desafío es fortalecer su papel frente a las editoriales.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg">
+                        <strong>Meta:</strong> Mayor control universitario del patrimonio intelectual
+                    </div>
+                </div>
+
+                <!-- Debate 4 -->
+                <div class="debate-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="text-3xl">⚠️</div>
+                        <h3 class="text-xl font-semibold text-gray-800">Publicaciones "depredadoras"</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Revistas fraudulentas que imitan a las legítimas pero carecen de revisión por pares rigurosa.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg">
+                        <strong>Desafío:</strong> Identificar y evitar sin minar la confianza en el AA
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ley Argentina -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-12 border-l-4 border-green-500">
+                <div class="flex items-start space-x-6 mb-6">
+                    <div class="text-5xl">
+                        <svg width="48" height="32" viewBox="0 0 48 32" class="inline-block">
+                            <rect width="48" height="32" fill="#74ACDF"/>
+                            <rect width="48" height="10.67" fill="#FFFFFF" y="10.67"/>
+                            <circle cx="24" cy="16" r="4" fill="#F6B40E" stroke="#8B4513" stroke-width="0.5"/>
+                            <path d="M24 13 L25 15 L27 15 L25.5 16.5 L26 18.5 L24 17 L22 18.5 L22.5 16.5 L21 15 L23 15 Z" fill="#8B4513"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700">¿Hay alguna ley que respalda el Acceso Abierto en Argentina?</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            <strong>¡Sí, la hay!</strong> En noviembre de 2013, el Congreso de la Nación Argentina 
+                            aprobó la <strong>Ley 26.899 de Creación de Repositorios Institucionales de Acceso Abierto y Gratuito</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-xl mb-6 border-l-4 border-green-400">
+                    <p class="text-gray-700 leading-relaxed">
+                        Esta ley establece que las instituciones del Sistema Nacional de Ciencia, Tecnología e Innovación 
+                        que reciban financiamiento del Estado Nacional deben crear repositorios institucionales de acceso 
+                        abierto y gratuito.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-xl">
+                    <div class="flex items-start space-x-4">
+                        <div class="text-3xl">🎯</div>
+                        <div>
+                            <h4 class="font-semibold text-green-700 mb-2">Objetivo principal</h4>
+                            <p class="text-gray-700">
+                                Asegurar que la inversión pública en investigación se traduzca 
+                                en un acceso libre y universal al conocimiento generado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-12">
+                <div class="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-semibold mb-4 text-purple-600">¿Por qué es importante?</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        El Acceso Abierto democratiza el conocimiento, acelera la investigación y maximiza el impacto 
+                        de la inversión pública en ciencia y educación.
+                    </p>
+                    <div class="space-x-4">
+                        <button onclick="scrollToTop()" class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300">
+                            Volver al inicio ↑
+                        </button>
+                        <button onclick="toggleFullscreen()" class="bg-gray-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300">
+                            📺 Pantalla completa
+                        </button>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+
+            <!-- Presentation Controls (Hidden by default) -->
+            <div id="presentation-controls" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full hidden z-50">
+                <div class="flex items-center space-x-4">
+                    <button onclick="previousSlide()" class="hover:text-yellow-400 transition-colors">
+                        ⬅️ Anterior
+                    </button>
+                    <span id="slide-counter" class="font-semibold">1 / 6</span>
+                    <button onclick="nextSlide()" class="hover:text-yellow-400 transition-colors">
+                        Siguiente ➡️
+                    </button>
+                    <button onclick="exitPresentation()" class="hover:text-red-400 transition-colors ml-4">
+                        ❌ Salir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-6 mb-8">
+                <!-- Recursos -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-teal-400">📚 Recursos</h3>
+                    <div class="text-sm space-y-2">
+                        <div><a href="#" class="text-gray-300 hover:text-white transition-colors">Repositorio ReDiHur</a></div>
+                        <div><a href="#" class="text-gray-300 hover:text-white transition-colors">Guías de Publicación</a></div>
+                    </div>
+                </div>
+
+                <!-- Herramientas -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-teal-400">🔧 Herramientas</h3>
+                    <div class="text-sm space-y-2">
+                        <div><a href="https://orcid.org/" target="_blank" class="text-gray-300 hover:text-white transition-colors">ORCID</a></div>
+                        <div><a href="https://creativecommons.org/" target="_blank" class="text-gray-300 hover:text-white transition-colors">Creative Commons</a></div>
+                        <div><a href="https://openpolicyfinder.jisc.ac.uk/" target="_blank" class="text-gray-300 hover:text-white transition-colors">Open Policy Finder</a></div>
+                    </div>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-teal-400">📧 Contacto</h3>
+                    <div class="text-sm space-y-2">
+                        <div class="text-gray-300">Biblioteca UNAHUR</div>
+                        <div class="text-gray-300">biblioteca.repositorio@unahur.edu.ar</div>
+                        <div class="text-gray-300">+54 11 4469-7500</div>
+                        <div class="text-gray-300">Villa Tesei, Buenos Aires</div>
+                    </div>
+                </div>
+
+                <!-- Redes Sociales -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-teal-400">🌐 Seguinos</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/unahur_oficial/" target="_blank" class="text-gray-300 hover:text-white transition-colors text-xl" title="Instagram UNAHUR">📸</a>
+                        <a href="https://x.com/unahur_oficial" target="_blank" class="text-gray-300 hover:text-white transition-colors text-xl" title="X (Twitter) UNAHUR">🐦</a>
+                        <a href="https://www.youtube.com/@unahur" target="_blank" class="text-gray-300 hover:text-white transition-colors text-xl" title="YouTube UNAHUR">▶️</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Línea divisoria -->
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-lg font-semibold text-teal-400">Universidad Nacional de Hurlingham</p>
+                        <p class="text-gray-400">Comprometidos con el acceso libre al conocimiento</p>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p class="text-gray-400 text-sm">© 2024 UNAHUR - Todos los derechos reservados</p>
+                        <p class="text-gray-500 text-xs mt-1">Desarrollado con ❤️ para la comunidad académica</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enlaces legales -->
+            <div class="mt-8 pt-6 border-t border-gray-700 text-center">
+                <div class="flex flex-wrap justify-center space-x-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Política de Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Términos de Uso</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Accesibilidad</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Mapa del Sitio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Presentation variables
+        let presentationMode = false;
+        let currentSlide = 0;
+        const slides = ['header', 'que-es', 'publicar', 'derechos', 'herramientas', 'debates'];
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Presentation functions
+        function startPresentation() {
+            presentationMode = true;
+            currentSlide = 0;
+            document.getElementById('presentation-controls').classList.remove('hidden');
+            document.body.style.cursor = 'none';
+            setTimeout(() => { document.body.style.cursor = 'auto'; }, 3000);
+            updateSlideCounter();
+            goToSlide(0);
+        }
+
+        function exitPresentation() {
+            presentationMode = false;
+            document.getElementById('presentation-controls').classList.add('hidden');
+            document.body.style.cursor = 'auto';
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                goToSlide(currentSlide);
+                updateSlideCounter();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                goToSlide(currentSlide);
+                updateSlideCounter();
+            }
+        }
+
+        function goToSlide(slideIndex) {
+            const slideId = slides[slideIndex];
+            if (slideId === 'header') {
+                scrollToTop();
+            } else {
+                scrollToSection(slideId);
+            }
+        }
+
+        function updateSlideCounter() {
+            document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert('No se pudo activar pantalla completa: ' + err.message);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Keyboard navigation for presentation
+        document.addEventListener('keydown', (e) => {
+            if (presentationMode) {
+                switch(e.key) {
+                    case 'ArrowRight':
+                    case ' ':
+                        nextSlide();
+                        break;
+                    case 'ArrowLeft':
+                        previousSlide();
+                        break;
+                    case 'Escape':
+                        exitPresentation();
+                        break;
+                    case 'f':
+                    case 'F':
+                        toggleFullscreen();
+                        break;
+                }
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const sectionFades = document.querySelectorAll('.section-fade');
+            
+            timelineItems.forEach((item, index) => {
+                setTimeout(() => {
+                    observer.observe(item);
+                }, index * 200);
+            });
+
+            sectionFades.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Active nav button highlighting
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('section');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navButtons.forEach(btn => {
+                    btn.classList.remove('scale-110', 'shadow-lg');
+                    if (btn.getAttribute('onclick').includes(current)) {
+                        btn.classList.add('scale-110', 'shadow-lg');
+                    }
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96906b7b734b1a73',t:'MTc1NDE2NzUzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
